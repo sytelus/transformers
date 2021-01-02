@@ -442,7 +442,7 @@ class AdaptiveEmbedding(nn.Module):
                 l_idx, r_idx = self.cutoff_ends[i], self.cutoff_ends[i + 1]
 
                 mask_i = (inp_flat >= l_idx) & (inp_flat < r_idx)
-                indices_i = mask_i.nonzero().squeeze()
+                indices_i = mask_i.nonzero(as_tuple=False).squeeze()
 
                 if indices_i.numel() == 0:
                     continue
