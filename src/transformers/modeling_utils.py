@@ -1032,6 +1032,9 @@ class PreTrainedModel(nn.Module, ModuleUtilsMixin, GenerationMixin):
 
         if state_dict is None and not from_tf:
             try:
+                file_size = os.path.getsize(resolved_archive_file)/1.0E6
+                logger.info(f'Model file: ({file_size}MB) "{resolved_archive_file}" ')
+
                 state_dict = torch.load(resolved_archive_file, map_location="cpu")
             except Exception:
                 raise OSError(

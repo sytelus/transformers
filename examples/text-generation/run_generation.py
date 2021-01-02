@@ -155,16 +155,16 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument(
         "--model_type",
-        default=None,
+        default='gpt2', # 'xlnet', 'transfo-xl', 'gpt2
         type=str,
-        required=True,
+        required=False,
         help="Model type selected in the list: " + ", ".join(MODEL_CLASSES.keys()),
     )
     parser.add_argument(
         "--model_name_or_path",
-        default=None,
+        default='gpt2', # 'xlnet-base-cased', 'transfo-xl-wt103', 'gpt2
         type=str,
-        required=True,
+        required=False,
         help="Path to pre-trained model or shortcut name selected in the list: " + ", ".join(MODEL_CLASSES.keys()),
     )
 
